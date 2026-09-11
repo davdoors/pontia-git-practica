@@ -1,0 +1,20 @@
+name: Workflow práctica
+
+on:
+  workflow_dispatch:
+    inputs:
+      message:
+        description: "Escribe tu nombre para el registro"
+        required: true
+        type: string
+
+jobs:
+  show-message:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Print message
+        env:
+          MESSAGE: ${{ inputs.message }}
+        run: |
+          echo "Workflow activado por: $MESSAGE"
